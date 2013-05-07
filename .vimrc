@@ -1,5 +1,3 @@
-set background=dark
-colorscheme ir_black
 set backup
 set backupdir=~/temp
 set dir=~/temp
@@ -11,6 +9,8 @@ set ffs=unix
 
 "bundle plugin
 call pathogen#infect()
+set background=dark
+colorscheme ir_black
 
 syntax on
 set tabstop=2
@@ -49,4 +49,6 @@ set wildmenu
 set wildmode=full
 
 nmap <space> za
+nmap <leader>nd :NERDTree<cr>
+nmap <C-ö> <C-]>
 
