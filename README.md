@@ -5,3 +5,4 @@ Colorscheme:
 
 Plugins:
   Pathogen - https://github.com/tpope/vim-pathogen.git
+  NERDTree - https://github.com/scrooloose/nerdtree.git
