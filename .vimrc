@@ -59,13 +59,13 @@ if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-nmap <leader>v :tabedit $MYVIMRC<cr>
+nnoremap <leader>v :tabedit $MYVIMRC<cr>
 
 "cool command tabbing option
 set wildmenu
 set wildmode=full
 
-nmap <space> za
-nmap <leader>nd :NERDTree<cr>
-nmap <C-ö> <C-]>
+nnoremap <space> za
+nnoremap <leader>nd :NERDTree<cr>
+nnoremap <C-ö> <C-]>
 
