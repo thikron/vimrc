@@ -1,3 +1,32 @@
+" Use Pathogen:
+call pathogen#incubate()
+call pathogen#helptags()
+
+" ========================================================================
+" Vundle stuff
+" ========================================================================
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let Vundle manage Vundle (required)!
+Bundle 'gmarik/vundle'
+
+" My bundles
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-cucumber'
+Bundle 'kchmck/vim-coffee-script'
+
+" Color scheme
+" mkdir -p ~/.vim/colors && cd ~/.vim/colors
+" wget -O wombat256mod.vim
+" http://www.vim.org/scripts/download_script.php?src_id=13400
+set t_Co=256
+color wombat256mod
+
+if has('gui_running')
+	set guifont=Consolas:h14
+endif
+
 set backup
 set backupdir=~/temp
 set dir=~/temp
@@ -11,16 +40,6 @@ set ff=unix
 " MUST be inserted BEFORE the colorscheme command
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red  
 au InsertLeave * match ExtraWhitespace /\s\+$/     
-
-"bundle plugin
-call pathogen#infect()    
-
-" Color scheme
-" mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" wget -O wombat256mod.vim
-" http://www.vim.org/scripts/download_script.php?src_id=13400
-set t_Co=256
-color wombat256mod
 
 syntax on
 set tabstop=2
@@ -36,6 +55,13 @@ set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
+set bg=light
+
+" Set gutter background to black
+highlight SignColumn ctermbg=black
+
+" Highlight the status line
+highlight StatusLine ctermfg=blue ctermbg=yellow
 
 "php
 set omnifunc=phpcomplete#CompletePHP
@@ -47,6 +73,9 @@ filetype plugin indent on
 "gui optionen
 set go-=T
 set go-=m
+
+" Make the omnicomplete text readable
+:highlight PmenuSel ctermfg=black
 
 let mapleader = ","
 
@@ -66,6 +95,4 @@ set wildmenu
 set wildmode=full
 
 nnoremap <space> za
-nnoremap <leader>nd :NERDTree<cr>
-nnoremap <C-ö> <C-]>
-
+nnoremap <C-?> <C-]>
