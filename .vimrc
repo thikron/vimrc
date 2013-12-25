@@ -15,6 +15,8 @@ Bundle 'gmarik/vundle'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-cucumber'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'othree/html5.vim'
+Bundle 'hail2u/vim-css3-syntax'
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
@@ -96,3 +98,7 @@ set wildmode=full
 
 nnoremap <space> za
 nnoremap <C-?> <C-]>
+
+"vendor prefice highlighting
+:highlight VendorPrefix guifg=#00ffff gui=bold
+:match VendorPrefix /-\(moz\|webkit\|o\|ms\)-[a-zA-Z-]\+/
