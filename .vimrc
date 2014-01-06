@@ -101,3 +101,7 @@ nnoremap <C-?> <C-]>
 :match VendorPrefix /-\(moz\|webkit\|o\|ms\)-[a-zA-Z-]\+/
 
 colorscheme codeschool
+
+if has("win32")
+	nnoremap <leader>f yaw:!findstr /spin /c:"<C-R>"" *.*<cr>
+endif
