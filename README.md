@@ -1,8 +1,10 @@
 vimrc
 =====
-Colorscheme:
-  ir_black - https://github.com/twerth/ir_black.git
-
 Plugins:
-  Pathogen - https://github.com/tpope/vim-pathogen.git
-  NERDTree - https://github.com/scrooloose/nerdtree.git
+	pathogen - https://github.com/tpope/vim-pathogen
+	vundle - https://github.com/gmarik/vundle
+
+Colorscheme:
+	wombat256mod
+	 mkdir -p ~/.vim/colors && cd ~/.vim/colors
+	 wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400

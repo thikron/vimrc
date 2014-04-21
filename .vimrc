@@ -44,8 +44,8 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/     
 
 syntax on
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set ignorecase
 set backspace=2
 set nocompatible
