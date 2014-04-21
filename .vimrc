@@ -1,11 +1,11 @@
 " Use Pathogen:
-call pathogen#incubate()
+execute pathogen#infect()
 call pathogen#helptags()
 
 " ========================================================================
 " Vundle stuff
 " ========================================================================
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=$HOME/.vim/bundle/vundle/,$HOME/.vim/
 call vundle#rc()
 
 " Let Vundle manage Vundle (required)!
@@ -15,13 +15,15 @@ Bundle 'gmarik/vundle'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-cucumber'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'othree/html5.vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'wincent/Command-T'
+Bundle 'scrooloose/nerdtree'
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim
 " http://www.vim.org/scripts/download_script.php?src_id=13400
-set t_Co=256
-color wombat256mod
 
 if has('gui_running')
 	set guifont=Consolas:h14
@@ -53,12 +55,10 @@ set number  " show line numbers
 set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=80
-highlight ColorColumn ctermbg=233
-set bg=light
 
-" Set gutter background to black
-highlight SignColumn ctermbg=black
+" Show 81st char with a bg color
+highlight ColorColumn ctermbg=198
+call matchadd('ColorColumn', '\%81v', 100)
 
 " Highlight the status line
 highlight StatusLine ctermfg=blue ctermbg=yellow
@@ -96,3 +96,19 @@ set wildmode=full
 
 nnoremap <space> za
 nnoremap <C-?> <C-]>
+inoremap <C-space> <C-x><C-o>
+nnoremap <C-s> :w<cr>
+nnoremap <C-n> :NERDTreeToggle<cr>
+inoremap ><Tab> ><Esc>F<lyt>o</<C-r>"><Esc>O<Space>
+
+"vendor prefice highlighting
+:highlight VendorPrefix guifg=#00ffff gui=bold
+:match VendorPrefix /-\(moz\|webkit\|o\|ms\)-[a-zA-Z-]\+/
+
+colorscheme codeschool
+
+if has("win32")
+	nnoremap <leader>f yaw:!findstr /spin /c:"<C-R>"" *.*<cr>
+endif
+
+set shm+=I
