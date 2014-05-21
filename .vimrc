@@ -5,7 +5,7 @@ call pathogen#helptags()
 " ========================================================================
 " Vundle stuff
 " ========================================================================
-set rtp+=$HOME/.vim/bundle/vundle/,$HOME/.vim/
+set rtp+=$HOME/vimfiles/bundle/vundle/,$HOME/vimfiles/
 call vundle#rc()
 
 " Let Vundle manage Vundle (required)!
@@ -17,8 +17,9 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
-Bundle 'wincent/Command-T'
+Bundle 'kien/ctrlp'
 Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-rails'
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
@@ -100,12 +101,15 @@ inoremap <C-space> <C-x><C-o>
 nnoremap <C-s> :w<cr>
 nnoremap <C-n> :NERDTreeToggle<cr>
 inoremap ><Tab> ><Esc>F<lyt>o</<C-r>"><Esc>O<Space>
+nnoremap <leader>c :!bundle exec cucumber<cr>
 
 "vendor prefice highlighting
 :highlight VendorPrefix guifg=#00ffff gui=bold
 :match VendorPrefix /-\(moz\|webkit\|o\|ms\)-[a-zA-Z-]\+/
 
-colorscheme codeschool
+:set t_Co=256
+:set background=dark
+:color grb256
 
 if has("win32")
 	nnoremap <leader>f yaw:!findstr /spin /c:"<C-R>"" *.*<cr>
