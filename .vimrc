@@ -121,7 +121,7 @@ nnoremap <C-?> <C-]>
 inoremap <C-space> <C-x><C-o>
 nnoremap <C-s> :w<cr>
 nnoremap <C-n> :NERDTreeToggle<cr>
-inoremap ><Tab> ><Esc>F<lyt>o</<C-r>"><Esc>O<Space>
+inoremap ><Tab> ><Esc>F<lviwyf>a</<C-r>"><Esc>F<i
 nnoremap <leader>c :!bundle exec cucumber<cr>
 
 "vendor prefice highlighting
