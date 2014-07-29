@@ -20,6 +20,12 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'kien/ctrlp'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+"clojure
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
