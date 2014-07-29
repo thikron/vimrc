@@ -33,7 +33,7 @@ Bundle 'tpope/vim-fireplace'
 " http://www.vim.org/scripts/download_script.php?src_id=13400
 
 if has('gui_running')
-	set guifont=Consolas:h14
+	set guifont=Consolas:h12
 endif
 
 set backup
@@ -51,11 +51,26 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/     
 
 syntax on
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set expandtab
+set autoindent
+set showmatch
+set incsearch
+set hlsearch
+set shiftwidth=2
 set ignorecase
+set laststatus=2
+set cursorline
+set cmdheight=1
 set backspace=2
 set nocompatible
+set scrolloff=3
+set showcmd
+set autoread
+
+autocmd FileType sass, ruby set ai sw=2 sts=2 et
+autocmd FileType java, javascript, html set sw=4 sts=4 et
 
 " Showing line numbers and length
 set number  " show line numbers
@@ -122,3 +137,5 @@ if has("win32")
 endif
 
 set shm+=I
+
+:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
