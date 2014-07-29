@@ -123,6 +123,19 @@ nnoremap <C-s> :w<cr>
 nnoremap <C-n> :NERDTreeToggle<cr>
 inoremap ><Tab> ><Esc>F<lviwyf>a</<C-r>"><Esc>F<i
 nnoremap <leader>c :!bundle exec cucumber<cr>
+vnoremap <c-c> "*y
+vnoremap <c-x> "*x
+noremap <c-v> "*p
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Can't be bothered to understand ESC vs <c-c> in insert mode
+imap <c-c> <esc>
+nnoremap <leader><leader> <c-^>
 
 "vendor prefice highlighting
 :highlight VendorPrefix guifg=#00ffff gui=bold
