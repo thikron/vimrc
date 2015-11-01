@@ -17,12 +17,13 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
-Bundle 'kien/ctrlp'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
+Bundle 'wincent/Command-T'
+Bundle 'vim-ruby/vim-ruby'
 "clojure
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
@@ -51,14 +52,12 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/     
 
 syntax on
-set tabstop=2
-set softtabstop=2
-set expandtab
+set expandtab ts=4 sw=4 ai
+set softtabstop=4
 set autoindent
 set showmatch
 set incsearch
 set hlsearch
-set shiftwidth=2
 set ignorecase
 set laststatus=2
 set cursorline
@@ -69,8 +68,8 @@ set scrolloff=3
 set showcmd
 set autoread
 
-autocmd FileType sass, ruby set ai sw=2 sts=2 et
-autocmd FileType java, javascript, html set sw=4 sts=4 et
+autocmd FileType sass, ruby set ai sw=2 sts=2 ts=4 et
+autocmd FileType java, javascript, html set sw=4 sts=4 ts=4 et
 
 " Showing line numbers and length
 set number  " show line numbers
@@ -126,24 +125,26 @@ nnoremap <leader>c :!bundle exec cucumber<cr>
 vnoremap <c-c> "*y
 vnoremap <c-x> "*x
 noremap <c-v> "*p
+nnoremap <leader>r :w<cr>:!clear<cr>:!ruby %<cr>
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+inoremap <c-V> <esc>"*pi
 
 " Can't be bothered to understand ESC vs <c-c> in insert mode
 imap <c-c> <esc>
 nnoremap <leader><leader> <c-^>
 
 "vendor prefice highlighting
-:highlight VendorPrefix guifg=#00ffff gui=bold
-:match VendorPrefix /-\(moz\|webkit\|o\|ms\)-[a-zA-Z-]\+/
+highlight VendorPrefix guifg=#00ffff gui=bold
+match VendorPrefix /-\(moz\|webkit\|o\|ms\)-[a-zA-Z-]\+/
 
-:set t_Co=256
-:set background=dark
-:color grb256
+set t_Co=256
+set background=dark
+color grb256
 
 if has("win32")
 	nnoremap <leader>f yaw:!findstr /spin /c:"<C-R>"" *.*<cr>
@@ -151,4 +152,4 @@ endif
 
 set shm+=I
 
-:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
