@@ -2,8 +2,6 @@
 execute pathogen#infect()
 call pathogen#helptags()
 
-set nocompatible " necessary for vundle
-
 " ========================================================================
 " Vundle stuff
 " ========================================================================
@@ -72,7 +70,7 @@ set noswapfile
 
 set enc=utf-8   "Show utf-8 chars
 set fenc=utf-8
-set fileencodings=ucs-bom,utf8,prc
+set fileencodings=ucs-bom,utf8,latin1
 set ff=unix
 
 "show whitespace
@@ -103,7 +101,7 @@ set mouse=a       "  use the mouse
 set mousehide     "  Hide the mouse pointer while typing
 set history=1000  "  Remember commands and search history
 set number        "  show line numbers
-set tw=120        "  width of document (used by gd)
+set tw=80        "  width of document (used by gd)
 set nowrap        "  turn off line wraps
 set list          "  Show invisible chars
 
@@ -135,7 +133,6 @@ set omnifunc=phpcomplete#CompletePHP
 filetype plugin on
 au BufNewFile,BufRead *.endfile set filetype=endfile
 let php_noShortTags=0
-filetype plugin indent on
 
 "gui optionen
 set go-=T
@@ -162,7 +159,11 @@ set wildmode=full
 
 " ---- Key mappings ----
 " Edit vimrc file
-nnoremap <leader>v :tabedit $MYVIMRC<cr>
+if has('nvim')
+    nnoremap <leader>v :tabedit ~/.vimrc<cr>
+else
+    nnoremap <leader>v :tabedit $MYVIMRC<cr>
+endif
 
 "Moves around split windows
 nnoremap <leader>w <C-w><C-w>
@@ -241,8 +242,8 @@ function! s:align()
 endfunction
 
 if v:version >= 703
-  set colorcolumn=75
-  hi ColorColumn ctermbg=234
+  "set colorcolumn=75
+  "hi ColorColumn ctermbg=234
   set undodir=~/.vim-undo
   set undofile
   set undolevels=1000 "max number of changes that can be undone
